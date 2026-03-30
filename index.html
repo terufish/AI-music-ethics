@@ -3,87 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Echo Chamber of Algorithms | AI & Music Ethics</title>
+    <title>The Echo Chamber of Algorithms | Investigative Project</title>
     <style>
         :root {
-            --bg: #0a0a0a;
-            --text: #e0e0e0;
-            --accent: #ee3124; /* CMU Red */
-            --gray: #2a2a2a;
+            --bg: #050505;
+            --text: #f0f0f0;
+            --accent: #ee3124; /* Carnegie Mellon Red */
+            --secondary: #888;
+            --card: #121212;
         }
+        * { box-sizing: border-box; }
+        
+        /* Pure CSS Scroll Indicator */
+        @keyframes grow-progress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent);
+            transform-origin: 0 50%;
+            animation: grow-progress auto linear;
+            animation-timeline: scroll();
+            z-index: 1000;
+        }
+
         body {
             background-color: var(--bg);
             color: var(--text);
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
+
         section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 10% 15%;
-            border-bottom: 1px solid var(--gray);
+            padding: 5% 15%;
+            border-bottom: 1px solid #1a1a1a;
         }
-        h1, h2 { color: var(--accent); text-transform: uppercase; letter-spacing: 2px; }
-        .hero { text-align: center; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-style: italic; opacity: 0.7; }
-        
+
+        .hero { text-align: center; border-bottom: none; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: -3px; margin: 0; color: var(--accent); }
+        .hero p { font-size: 1.1rem; color: var(--secondary); margin-top: 10px; text-transform: uppercase; letter-spacing: 3px; }
+
+        .chapter-num { color: var(--accent); font-weight: bold; font-family: monospace; font-size: 1.1rem; display: block; margin-bottom: 5px; }
+        h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin-top: 0; letter-spacing: -1px; }
+
         .question-box {
-            background: var(--gray);
-            padding: 30px;
-            border-left: 5px solid var(--accent);
-            margin: 20px 0;
-        }
-        .logic-map {
-            border: 2px dashed var(--accent);
+            background: var(--card);
             padding: 40px;
-            text-align: center;
-            margin: 20px 0;
-            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            font-style: italic;
+            margin: 30px 0;
+            line-height: 1.4;
         }
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; opacity: 0.5; }
-        
-        /* Smooth Scroll */
-        html { scroll-behavior: smooth; }
+
+        /* The Nutrition Label */
+        .nutrition-label {
+            background: white;
+            color: black;
+            padding: 20px;
+            width: 280px;
+            border: 2px solid black;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 20px auto;
+            transform: rotate(1deg); /* Slight tilt for 'exhibition' feel */
+        }
+        .nutrition-label h3 { border-bottom: 10px solid black; margin: 0; padding-bottom: 5px; font-size: 1.8rem; font-weight: 900; }
+        .label-row { border-bottom: 1px solid black; display: flex; justify-content: space-between; font-weight: bold; padding: 5px 0; font-size: 0.9rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        footer {
+            padding: 80px 15%;
+            text-align: center;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            section { padding: 10% 8%; }
+            .grid { grid-template-columns: 1fr; }
+            .nutrition-label { margin: 40px auto 0; }
+        }
     </style>
 </head>
 <body>
 
+    <div class="progress-bar"></div>
+
     <section class="hero">
-        <h1>The Echo Chamber of Algorithms</h1>
-        <p>An Epistemological Investigation into AI Music Production</p>
-        <p>By [Your Name]</p>
+        <p>A Digital Philosophy Exhibition</p>
+        <h1>THE ECHO CHAMBER <br>OF ALGORITHMS</h1>
+        <p style="text-transform: none; color: white; opacity: 0.8;">Investigating the Epistemological Friction of AI in Music</p>
     </section>
 
     <section>
-        <h2>01. The Paradox of Simulated Emotion</h2>
+        <span class="chapter-num">CHAPTER 01</span>
+        <h2>The Paradox of Simulated Emotion</h2>
         <div class="question-box">
-            <p>If a listener has a profound, genuine emotional response to an AI-generated song, does the "falseness" of the source invalidate the "truth" of the feeling?</p>
+            "If a machine mimics a scream, is there any pain in the sound?"
         </div>
-        <p>Here, I explore the boundary between machine computation and human empathy. [Add your 2-3 sentence reflection here.]</p>
+        <p>Art has traditionally served as a bridge between two human souls. My investigation explores the boundary between machine computation and human empathy: if AI triggers a genuine emotional response, does the 'falseness' of the source invalidate the 'truth' of the feeling? I argue that while the stimulus is algorithmic, the <strong>epistemological weight</strong> remains with the human listener.</p>
     </section>
 
     <section>
-        <h2>02. The Metadata of Morality</h2>
-        <div class="logic-map">
-            [Visual Idea: Insert an image or diagram of an "AI Music Nutrition Label" here]
+        <span class="chapter-num">CHAPTER 02</span>
+        <h2>The Metadata of Morality</h2>
+        <div class="grid">
+            <div>
+                <p>Generative AI is a mirror of cultural history, yet its outputs are often presented as "ownerless." I propose the <strong>AI Music Nutrition Label</strong>: a framework to de-anonymize training data.</p>
+                <p>By tracing the lineage of digital motifs back to the 'Data Donors'—the human artists whose legacies power these models—we shift the focus from <em>Product-based</em> value to <em>Lineage-based</em> ethics.</p>
+            </div>
+            <div class="nutrition-label">
+                <h3>Artistic Facts</h3>
+                <div class="label-row"><span>Human Intent (Prompt)</span><span>12%</span></div>
+                <div class="label-row"><span>Algorithmic Synthesis</span><span>88%</span></div>
+                <div class="label-row" style="border-bottom: 6px solid black;"><span>Cultural Heritage</span><span>High</span></div>
+                <div style="font-size: 0.7rem; padding-top: 8px; line-height: 1.2;">
+                    *Ingredients include: Uncredited 1920s Delta Blues, various improvisational jazz structures, and thousands of hours of human-performed vibrato.
+                </div>
+            </div>
         </div>
-        <p>I am developing a framework for <strong>Attributional Ethics</strong>. We must trace the lineage of digital motifs back to the cultural "data donors" who inspired them.</p>
     </section>
 
     <section>
-        <h2>03. The Curator's Manifesto</h2>
-        <p>Does art require labor to be valuable? In an age of infinite generation, the artist's role shifts from <em>execution</em> to <em>intentionality</em>.</p>
+        <span class="chapter-num">CHAPTER 03</span>
+        <h2>The Curator's Manifesto</h2>
         <div class="question-box">
-            "Art is not just what we see, but the history of why it exists."
+            "Does art require labor to be valuable?"
         </div>
+        <p>In an age of infinite generation, 'Genius' is being redefined. We are transitioning from the era of the <strong>Executor</strong> (the player) to the era of the <strong>Curator</strong> (the thinker). While the machine provides the efficiency, only the human provides the <em>intentionality</em> that transforms sound into music. My heart remains in the work.</p>
     </section>
 
     <footer>
-        Investigative Project for the CMU Class of 2030 | Built with Code & Curiosity
+        <strong>Terry Yin</strong><br>
+        What is art if emotions were taken out of it?<br>
+        <em>Investigative Project: Music, AI, and Ethics</em>
     </footer>
 
 </body>
